@@ -1,7 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
+const dotenv = require('dotenv');
 
+dotenv.config();
+
+const app = express();
 app.use(cors())
 
  const data = {
@@ -26,4 +29,4 @@ app.get('/products', (req, res) => {
   return res.json(data.products);
 })
 
-app.listen(3333, () => console.log('listening on port 3333'));
+app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`));
